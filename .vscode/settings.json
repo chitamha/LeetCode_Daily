@@ -2,6 +2,7 @@
     "files.associations": {
         "iostream": "cpp",
         "valarray": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "vector": "cpp"
     }
 }
