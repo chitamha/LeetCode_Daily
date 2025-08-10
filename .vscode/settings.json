@@ -3,6 +3,7 @@
         "iostream": "cpp",
         "valarray": "cpp",
         "ratio": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "tuple": "cpp"
     }
 }
