@@ -1,15 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution{
 public:
-    int F[10005];
-
     bool canJump(vector<int>& nums){
-        int n=nums.size();
-        F[0]=1;
+        int maxStep=0, n=nums.size();
         for (int i=0; i<n-1; i++){
-            for (int j=0; j<=nums[i] && i+j<n; j++){
-                F[i+j]=F[i+j]||F[i];
+            int nextStep=0;
+            while (i<=maxStep){
+                nextStep=max(nextStep, i+nums[i]);
+                i++;
             }
+            if (nextStep!=0) i--;
+            maxStep=max(maxStep, nextStep);
+            if (maxStep>=n-1) return 1;
         }
-        return F[n-1];
+        if (n==1) return 1;
+        return 0;
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr); cout.tie(nullptr);
+
+
+    return 0;
+}

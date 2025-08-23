@@ -3,25 +3,26 @@ using namespace std;
 
 class Solution{
 public:
-    int F[10005];
-
     int jump(vector<int> &nums){
-        memset(F, 62, sizeof F);
-        int n=nums.size();
-        F[0]=0;
+        int count=0, maxStep=0, n=nums.size();
         for (int i=0; i<n-1; i++){
-            for (int j=0; j<=nums[i] && i+j<n; j++){
-                F[i+j]=min(F[i+j], F[i]+1);
+            int nextStep=0;
+            while (i<=maxStep){
+                nextStep=max(nextStep, i+nums[i]);
+                i++;
             }
+            if (nextStep!=0) i--;
+            count++;
+            maxStep=max(maxStep, nextStep);
+            if (maxStep>=n-1) return count;
         }
-        return F[n-1];
+        return 0;
     }
 };
 
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr); cout.tie(nullptr);
-
 
 
     return 0;
